@@ -1,0 +1,24 @@
+Metadata-Version: 2.4
+Name: cnnClassifier
+Version: 0.0.0
+Summary: A small python package for CNN app
+Home-page: https://github.com/Namit/Chest-Cancer-Classification-Project
+Author: Namit
+Author-email: namitjain0620@gmail.com
+Project-URL: Bug Tracker, https://github.com/Namit/Chest-Cancer-Classification-Project/issues
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: home-page
+Dynamic: project-url
+Dynamic: summary
+
+Update config.yaml
+Update secrets.yaml [Optional]
+Update params.yaml
+Update the entity
+Update the configuration manager in src config
+Update the components
+Update the pipeline
+Update the main.py
+Update the dvc.yaml

@@ -1,0 +1,150 @@
+[2025-12-20 12:40:47,438: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-12-20 12:40:47,440: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-20 12:40:47,451: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-20 12:40:47,451: ERROR: main: yaml file is empty]
+Traceback (most recent call last):
+  File "E:\deep learning\src\cnnClassifier\utils\common.py", line 33, in read_yaml
+    return ConfigBox(content)
+  File "box\box.py", line 247, in box.box.Box.__init__
+box.exceptions.BoxValueError: Cannot extrapolate Box from string
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\deep learning\main.py", line 10, in <module>
+    obj.main()
+  File "E:\deep learning\src\cnnClassifier\pipeline\stage_01_data_ingestion.py", line 14, in main
+    config = ConfigurationManager()
+  File "E:\deep learning\src\cnnClassifier\config\configuration.py", line 14, in __init__
+    self.params = read_yaml(params_filepath)
+  File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\ensure\main.py", line 849, in __call__
+    return_val = self.f(*args, **kwargs)
+  File "E:\deep learning\src\cnnClassifier\utils\common.py", line 35, in read_yaml
+    raise ValueError("yaml file is empty")
+ValueError: yaml file is empty
+[2025-12-20 12:44:49,008: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-12-20 12:44:49,010: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-20 12:44:49,012: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-20 12:44:49,023: INFO: common: created directory at: artifacts]
+[2025-12-20 12:44:49,130: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-20 12:44:49,131: INFO: data_ingestion: Downloading data from https://drive.google.com/uc?id=1NzPljKM7uDBp9P1GR4rpL4-kp7hsn-ol into file artifacts/data_ingestion/data.zip]
+[2025-12-20 12:44:49,713: ERROR: main: Failed to retrieve file url:
+
+	Cannot retrieve the public link of the file. You may need to change
+	the permission to 'Anyone with the link', or have had many accesses.
+	Check FAQ in https://github.com/wkentaro/gdown?tab=readme-ov-file#faq.
+
+You may still be able to access the file from the browser:
+
+	https://drive.google.com/uc?/export=download&id=drive.google.com
+
+but Gdown can't. Please check connections and permissions.]
+Traceback (most recent call last):
+  File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\gdown\download.py", line 267, in download
+    url = get_url_from_gdrive_confirmation(res.text)
+  File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\gdown\download.py", line 55, in get_url_from_gdrive_confirmation
+    raise FileURLRetrievalError(
+gdown.exceptions.FileURLRetrievalError: Cannot retrieve the public link of the file. You may need to change the permission to 'Anyone with the link', or have had many accesses. Check FAQ in https://github.com/wkentaro/gdown?tab=readme-ov-file#faq.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\deep learning\main.py", line 10, in <module>
+    obj.main()
+  File "E:\deep learning\src\cnnClassifier\pipeline\stage_01_data_ingestion.py", line 17, in main
+    data_ingestion.download_file()
+  File "E:\deep learning\src\cnnClassifier\components\data_ingestion.py", line 34, in download_file
+    raise e
+  File "E:\deep learning\src\cnnClassifier\components\data_ingestion.py", line 29, in download_file
+    gdown.download(prefix+file_id,zip_download_dir)
+  File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\gdown\download.py", line 278, in download
+    raise FileURLRetrievalError(message)
+gdown.exceptions.FileURLRetrievalError: Failed to retrieve file url:
+
+	Cannot retrieve the public link of the file. You may need to change
+	the permission to 'Anyone with the link', or have had many accesses.
+	Check FAQ in https://github.com/wkentaro/gdown?tab=readme-ov-file#faq.
+
+You may still be able to access the file from the browser:
+
+	https://drive.google.com/uc?/export=download&id=drive.google.com
+
+but Gdown can't. Please check connections and permissions.
+[2025-12-20 12:45:23,279: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-12-20 12:45:23,281: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-20 12:45:23,282: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-20 12:45:23,283: INFO: common: created directory at: artifacts]
+[2025-12-20 12:45:23,283: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-20 12:45:23,284: INFO: data_ingestion: Downloading data from https://drive.google.com/uc?id=1NzPljKM7uDBp9P1GR4rpL4-kp7hsn-ol into file artifacts/data_ingestion/data.zip]
+[2025-12-20 12:45:23,794: ERROR: main: Failed to retrieve file url:
+
+	Cannot retrieve the public link of the file. You may need to change
+	the permission to 'Anyone with the link', or have had many accesses.
+	Check FAQ in https://github.com/wkentaro/gdown?tab=readme-ov-file#faq.
+
+You may still be able to access the file from the browser:
+
+	https://drive.google.com/uc?/export=download&id=drive.google.com
+
+but Gdown can't. Please check connections and permissions.]
+Traceback (most recent call last):
+  File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\gdown\download.py", line 267, in download
+    url = get_url_from_gdrive_confirmation(res.text)
+  File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\gdown\download.py", line 55, in get_url_from_gdrive_confirmation
+    raise FileURLRetrievalError(
+gdown.exceptions.FileURLRetrievalError: Cannot retrieve the public link of the file. You may need to change the permission to 'Anyone with the link', or have had many accesses. Check FAQ in https://github.com/wkentaro/gdown?tab=readme-ov-file#faq.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\deep learning\main.py", line 10, in <module>
+    obj.main()
+  File "E:\deep learning\src\cnnClassifier\pipeline\stage_01_data_ingestion.py", line 17, in main
+    data_ingestion.download_file()
+  File "E:\deep learning\src\cnnClassifier\components\data_ingestion.py", line 34, in download_file
+    raise e
+  File "E:\deep learning\src\cnnClassifier\components\data_ingestion.py", line 29, in download_file
+    gdown.download(prefix+file_id,zip_download_dir)
+  File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\gdown\download.py", line 278, in download
+    raise FileURLRetrievalError(message)
+gdown.exceptions.FileURLRetrievalError: Failed to retrieve file url:
+
+	Cannot retrieve the public link of the file. You may need to change
+	the permission to 'Anyone with the link', or have had many accesses.
+	Check FAQ in https://github.com/wkentaro/gdown?tab=readme-ov-file#faq.
+
+You may still be able to access the file from the browser:
+
+	https://drive.google.com/uc?/export=download&id=drive.google.com
+
+but Gdown can't. Please check connections and permissions.
+[2025-12-20 12:49:34,974: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-12-20 12:49:34,975: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-20 12:49:34,978: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-20 12:49:34,978: INFO: common: created directory at: artifacts]
+[2025-12-20 12:49:34,979: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-20 12:49:34,979: INFO: data_ingestion: Downloading data from https://drive.google.com/uc?id=1NzPljKM7uDBp9P1GR4rpL4-kp7hsn-ol into file artifacts/data_ingestion/data.zip]
+[2025-12-20 12:49:46,796: INFO: data_ingestion: Downloaded data from https://drive.google.com/uc?id=1NzPljKM7uDBp9P1GR4rpL4-kp7hsn-ol into file artifacts/data_ingestion/data.zip]
+[2025-12-20 12:49:48,912: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-12-20 16:06:58,994: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-12-20 16:06:58,998: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-20 16:06:59,000: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-20 16:06:59,000: INFO: common: created directory at: artifacts]
+[2025-12-20 16:06:59,111: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-20 16:06:59,111: INFO: data_ingestion: Downloading data from https://drive.google.com/uc?id=1NzPljKM7uDBp9P1GR4rpL4-kp7hsn-ol into file artifacts/data_ingestion/data.zip]
+[2025-12-20 16:07:11,143: INFO: data_ingestion: Downloaded data from https://drive.google.com/uc?id=1NzPljKM7uDBp9P1GR4rpL4-kp7hsn-ol into file artifacts/data_ingestion/data.zip]
+[2025-12-20 16:07:14,198: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-12-20 16:07:14,198: INFO: main: *******************]
+[2025-12-20 16:07:14,199: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2025-12-20 16:07:14,200: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-20 16:07:14,202: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-20 16:07:14,202: INFO: common: created directory at: artifacts]
+[2025-12-20 16:07:14,203: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-20 16:07:19,551: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-12-20 16:07:19,941: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
