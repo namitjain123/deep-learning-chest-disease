@@ -148,3 +148,209 @@ x==========x]
 [2025-12-20 16:07:19,941: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
 
 x==========x]
+[2025-12-21 00:00:58,429: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-12-21 00:00:58,466: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 00:00:58,477: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 00:00:58,480: INFO: common: created directory at: artifacts]
+[2025-12-21 00:00:58,480: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-21 00:00:58,481: INFO: data_ingestion: Downloading data from https://drive.google.com/uc?id=1NzPljKM7uDBp9P1GR4rpL4-kp7hsn-ol into file artifacts/data_ingestion/data.zip]
+[2025-12-21 00:01:09,974: INFO: data_ingestion: Downloaded data from https://drive.google.com/uc?id=1NzPljKM7uDBp9P1GR4rpL4-kp7hsn-ol into file artifacts/data_ingestion/data.zip]
+[2025-12-21 00:01:12,493: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-12-21 00:01:12,493: INFO: main: *******************]
+[2025-12-21 00:01:12,493: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2025-12-21 00:01:12,496: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 00:01:12,498: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 00:01:12,498: INFO: common: created directory at: artifacts]
+[2025-12-21 00:01:12,499: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-21 00:01:13,119: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-12-21 00:01:13,815: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2025-12-21 00:01:13,815: INFO: main: *******************]
+[2025-12-21 00:01:13,815: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-12-21 00:01:13,817: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 00:01:13,819: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 00:01:13,820: INFO: common: created directory at: artifacts]
+[2025-12-21 00:01:13,820: INFO: common: created directory at: artifacts\training]
+[2025-12-21 00:01:14,165: ERROR: main: [WinError 3] The system cannot find the path specified: 'artifacts\\data_ingestion\\Chest-CT-Scan-data']
+Traceback (most recent call last):
+  File "E:\deep learning\main.py", line 37, in <module>
+    model_trainer.main()
+  File "E:\deep learning\src\cnnClassifier\pipeline\stage_03_model_trainer.py", line 20, in main
+    training.train_valid_generator()
+  File "E:\deep learning\src\cnnClassifier\components\model_trainer.py", line 38, in train_valid_generator
+    self.valid_generator = valid_datagenerator.flow_from_directory(
+  File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\preprocessing\image.py", line 1648, in flow_from_directory
+    return DirectoryIterator(
+  File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\preprocessing\image.py", line 563, in __init__
+    for subdir in sorted(os.listdir(directory)):
+FileNotFoundError: [WinError 3] The system cannot find the path specified: 'artifacts\\data_ingestion\\Chest-CT-Scan-data'
+[2025-12-21 00:15:00,882: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-12-21 00:15:00,885: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 00:15:00,887: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 00:15:00,887: INFO: common: created directory at: artifacts]
+[2025-12-21 00:15:00,888: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-21 00:15:00,888: INFO: data_ingestion: Downloading data from https://drive.google.com/uc?id=1NzPljKM7uDBp9P1GR4rpL4-kp7hsn-ol into file artifacts/data_ingestion/data.zip]
+[2025-12-21 00:15:12,950: INFO: data_ingestion: Downloaded data from https://drive.google.com/uc?id=1NzPljKM7uDBp9P1GR4rpL4-kp7hsn-ol into file artifacts/data_ingestion/data.zip]
+[2025-12-21 00:15:14,713: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-12-21 00:15:14,713: INFO: main: *******************]
+[2025-12-21 00:15:14,714: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2025-12-21 00:15:14,716: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 00:15:14,720: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 00:15:14,720: INFO: common: created directory at: artifacts]
+[2025-12-21 00:15:14,721: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-21 00:15:15,213: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-12-21 00:15:15,564: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2025-12-21 00:15:15,564: INFO: main: *******************]
+[2025-12-21 00:15:15,564: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-12-21 00:15:15,566: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 00:15:15,568: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 00:15:15,568: INFO: common: created directory at: artifacts]
+[2025-12-21 00:15:15,569: INFO: common: created directory at: artifacts\training]
+[2025-12-21 00:15:20,985: ERROR: main: Graph execution error:
+
+Detected at node 'categorical_crossentropy/softmax_cross_entropy_with_logits' defined at (most recent call last):
+    File "E:\deep learning\main.py", line 37, in <module>
+      model_trainer.main()
+    File "E:\deep learning\src\cnnClassifier\pipeline\stage_03_model_trainer.py", line 21, in main
+      training.train()
+    File "E:\deep learning\src\cnnClassifier\components\model_trainer.py", line 82, in train
+      self.model.fit(
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\utils\traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\engine\training.py", line 1685, in fit
+      tmp_logs = self.train_function(iterator)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\engine\training.py", line 1284, in train_function
+      return step_function(self, iterator)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\engine\training.py", line 1268, in step_function
+      outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\engine\training.py", line 1249, in run_step
+      outputs = model.train_step(data)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\engine\training.py", line 1051, in train_step
+      loss = self.compute_loss(x, y, y_pred, sample_weight)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\engine\training.py", line 1109, in compute_loss
+      return self.compiled_loss(
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\engine\compile_utils.py", line 265, in __call__
+      loss_value = loss_obj(y_t, y_p, sample_weight=sw)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\losses.py", line 142, in __call__
+      losses = call_fn(y_true, y_pred)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\losses.py", line 268, in call
+      return ag_fn(y_true, y_pred, **self._fn_kwargs)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\losses.py", line 1984, in categorical_crossentropy
+      return backend.categorical_crossentropy(
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\backend.py", line 5565, in categorical_crossentropy
+      return tf.nn.softmax_cross_entropy_with_logits(
+Node: 'categorical_crossentropy/softmax_cross_entropy_with_logits'
+logits and labels must be broadcastable: logits_size=[16,2] labels_size=[16,4]
+	 [[{{node categorical_crossentropy/softmax_cross_entropy_with_logits}}]] [Op:__inference_train_function_1463]]
+Traceback (most recent call last):
+  File "E:\deep learning\main.py", line 37, in <module>
+    model_trainer.main()
+  File "E:\deep learning\src\cnnClassifier\pipeline\stage_03_model_trainer.py", line 21, in main
+    training.train()
+  File "E:\deep learning\src\cnnClassifier\components\model_trainer.py", line 82, in train
+    self.model.fit(
+  File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\utils\traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\tensorflow\python\eager\execute.py", line 52, in quick_execute
+    tensors = pywrap_tfe.TFE_Py_Execute(ctx._handle, device_name, op_name,
+tensorflow.python.framework.errors_impl.InvalidArgumentError: Graph execution error:
+
+Detected at node 'categorical_crossentropy/softmax_cross_entropy_with_logits' defined at (most recent call last):
+    File "E:\deep learning\main.py", line 37, in <module>
+      model_trainer.main()
+    File "E:\deep learning\src\cnnClassifier\pipeline\stage_03_model_trainer.py", line 21, in main
+      training.train()
+    File "E:\deep learning\src\cnnClassifier\components\model_trainer.py", line 82, in train
+      self.model.fit(
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\utils\traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\engine\training.py", line 1685, in fit
+      tmp_logs = self.train_function(iterator)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\engine\training.py", line 1284, in train_function
+      return step_function(self, iterator)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\engine\training.py", line 1268, in step_function
+      outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\engine\training.py", line 1249, in run_step
+      outputs = model.train_step(data)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\engine\training.py", line 1051, in train_step
+      loss = self.compute_loss(x, y, y_pred, sample_weight)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\engine\training.py", line 1109, in compute_loss
+      return self.compiled_loss(
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\engine\compile_utils.py", line 265, in __call__
+      loss_value = loss_obj(y_t, y_p, sample_weight=sw)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\losses.py", line 142, in __call__
+      losses = call_fn(y_true, y_pred)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\losses.py", line 268, in call
+      return ag_fn(y_true, y_pred, **self._fn_kwargs)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\losses.py", line 1984, in categorical_crossentropy
+      return backend.categorical_crossentropy(
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\backend.py", line 5565, in categorical_crossentropy
+      return tf.nn.softmax_cross_entropy_with_logits(
+Node: 'categorical_crossentropy/softmax_cross_entropy_with_logits'
+logits and labels must be broadcastable: logits_size=[16,2] labels_size=[16,4]
+	 [[{{node categorical_crossentropy/softmax_cross_entropy_with_logits}}]] [Op:__inference_train_function_1463]
+[2025-12-21 00:23:43,253: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-12-21 00:23:43,256: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 00:23:43,266: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 00:23:43,267: INFO: common: created directory at: artifacts]
+[2025-12-21 00:23:43,267: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-21 00:23:43,268: INFO: data_ingestion: Downloading data from https://drive.google.com/uc?id=1NzPljKM7uDBp9P1GR4rpL4-kp7hsn-ol into file artifacts/data_ingestion/data.zip]
+[2025-12-21 00:23:55,234: INFO: data_ingestion: Downloaded data from https://drive.google.com/uc?id=1NzPljKM7uDBp9P1GR4rpL4-kp7hsn-ol into file artifacts/data_ingestion/data.zip]
+[2025-12-21 00:23:56,614: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-12-21 00:23:56,615: INFO: main: *******************]
+[2025-12-21 00:23:56,615: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2025-12-21 00:23:56,617: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 00:23:56,619: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 00:23:56,619: INFO: common: created directory at: artifacts]
+[2025-12-21 00:23:56,620: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-21 00:23:57,239: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-12-21 00:23:57,633: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2025-12-21 00:23:57,634: INFO: main: *******************]
+[2025-12-21 00:23:57,634: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-12-21 00:23:57,636: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 00:23:57,638: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 00:23:57,638: INFO: common: created directory at: artifacts]
+[2025-12-21 00:23:57,639: INFO: common: created directory at: artifacts\training]
+[2025-12-21 00:25:15,593: INFO: main: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2025-12-21 00:29:50,262: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-12-21 00:29:50,264: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 00:29:50,273: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 00:29:50,274: INFO: common: created directory at: artifacts]
+[2025-12-21 00:29:50,275: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-21 00:29:50,276: INFO: data_ingestion: Downloading data from https://drive.google.com/uc?id=1NzPljKM7uDBp9P1GR4rpL4-kp7hsn-ol into file artifacts/data_ingestion/data.zip]
+[2025-12-21 00:30:01,248: INFO: data_ingestion: Downloaded data from https://drive.google.com/uc?id=1NzPljKM7uDBp9P1GR4rpL4-kp7hsn-ol into file artifacts/data_ingestion/data.zip]
+[2025-12-21 00:30:03,570: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-12-21 00:30:03,570: INFO: main: *******************]
+[2025-12-21 00:30:03,570: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2025-12-21 00:30:03,573: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 00:30:03,574: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 00:30:03,575: INFO: common: created directory at: artifacts]
+[2025-12-21 00:30:03,575: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-21 00:30:04,038: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-12-21 00:30:04,528: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2025-12-21 00:30:04,529: INFO: main: *******************]
+[2025-12-21 00:30:04,529: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-12-21 00:30:04,531: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 00:30:04,533: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 00:30:04,533: INFO: common: created directory at: artifacts]
+[2025-12-21 00:30:04,534: INFO: common: created directory at: artifacts\training]
+[2025-12-21 00:33:46,911: INFO: main: >>>>>> stage Training completed <<<<<<
+
+x==========x]
