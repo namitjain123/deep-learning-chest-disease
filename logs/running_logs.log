@@ -354,3 +354,367 @@ x==========x]
 [2025-12-21 00:33:46,911: INFO: main: >>>>>> stage Training completed <<<<<<
 
 x==========x]
+[2025-12-21 15:11:34,424: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-12-21 15:11:34,506: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 15:11:34,516: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 15:11:34,721: INFO: common: created directory at: artifacts]
+[2025-12-21 15:11:34,722: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-21 15:11:34,723: INFO: data_ingestion: Downloading data from https://drive.google.com/uc?id=1NzPljKM7uDBp9P1GR4rpL4-kp7hsn-ol into file artifacts/data_ingestion/data.zip]
+[2025-12-21 15:11:45,686: INFO: data_ingestion: Downloaded data from https://drive.google.com/uc?id=1NzPljKM7uDBp9P1GR4rpL4-kp7hsn-ol into file artifacts/data_ingestion/data.zip]
+[2025-12-21 15:11:47,072: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-12-21 15:11:47,072: INFO: main: *******************]
+[2025-12-21 15:11:47,072: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2025-12-21 15:11:47,074: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 15:11:47,076: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 15:11:47,076: INFO: common: created directory at: artifacts]
+[2025-12-21 15:11:47,077: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-21 15:11:47,690: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-12-21 15:11:48,261: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2025-12-21 15:11:48,261: INFO: main: *******************]
+[2025-12-21 15:11:48,261: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-12-21 15:11:48,264: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 15:11:48,265: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 15:11:48,266: INFO: common: created directory at: artifacts]
+[2025-12-21 15:11:48,267: INFO: common: created directory at: artifacts\training]
+[2025-12-21 15:12:50,019: INFO: main: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2025-12-21 15:12:50,019: INFO: main: *******************]
+[2025-12-21 15:12:50,020: INFO: main: >>>>>> stage Evaluation stage started <<<<<<]
+[2025-12-21 15:12:50,022: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 15:12:50,023: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 15:12:50,024: INFO: common: created directory at: artifacts]
+[2025-12-21 15:12:53,071: ERROR: main: Graph execution error:
+
+Detected at node 'categorical_crossentropy/softmax_cross_entropy_with_logits' defined at (most recent call last):
+    File "E:\deep learning\main.py", line 57, in <module>
+      model_evalution.main()
+    File "E:\deep learning\src\cnnClassifier\pipeline\stage_04_model_evaluation.py", line 18, in main
+      evaluation.evaluation()
+    File "E:\deep learning\src\cnnClassifier\components\model_evaluation_mlflow.py", line 48, in evaluation
+      self.score = self.model.evaluate(self.valid_generator)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\utils\traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\engine\training.py", line 2072, in evaluate
+      tmp_logs = self.test_function(iterator)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\engine\training.py", line 1852, in test_function
+      return step_function(self, iterator)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\engine\training.py", line 1836, in step_function
+      outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\engine\training.py", line 1824, in run_step
+      outputs = model.test_step(data)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\engine\training.py", line 1790, in test_step
+      self.compute_loss(x, y, y_pred, sample_weight)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\engine\training.py", line 1109, in compute_loss
+      return self.compiled_loss(
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\engine\compile_utils.py", line 265, in __call__
+      loss_value = loss_obj(y_t, y_p, sample_weight=sw)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\losses.py", line 142, in __call__
+      losses = call_fn(y_true, y_pred)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\losses.py", line 268, in call
+      return ag_fn(y_true, y_pred, **self._fn_kwargs)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\losses.py", line 1984, in categorical_crossentropy
+      return backend.categorical_crossentropy(
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\backend.py", line 5565, in categorical_crossentropy
+      return tf.nn.softmax_cross_entropy_with_logits(
+Node: 'categorical_crossentropy/softmax_cross_entropy_with_logits'
+logits and labels must be broadcastable: logits_size=[16,4] labels_size=[16,3]
+	 [[{{node categorical_crossentropy/softmax_cross_entropy_with_logits}}]] [Op:__inference_test_function_2771]]
+Traceback (most recent call last):
+  File "E:\deep learning\main.py", line 57, in <module>
+    model_evalution.main()
+  File "E:\deep learning\src\cnnClassifier\pipeline\stage_04_model_evaluation.py", line 18, in main
+    evaluation.evaluation()
+  File "E:\deep learning\src\cnnClassifier\components\model_evaluation_mlflow.py", line 48, in evaluation
+    self.score = self.model.evaluate(self.valid_generator)
+  File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\utils\traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\tensorflow\python\eager\execute.py", line 52, in quick_execute
+    tensors = pywrap_tfe.TFE_Py_Execute(ctx._handle, device_name, op_name,
+tensorflow.python.framework.errors_impl.InvalidArgumentError: Graph execution error:
+
+Detected at node 'categorical_crossentropy/softmax_cross_entropy_with_logits' defined at (most recent call last):
+    File "E:\deep learning\main.py", line 57, in <module>
+      model_evalution.main()
+    File "E:\deep learning\src\cnnClassifier\pipeline\stage_04_model_evaluation.py", line 18, in main
+      evaluation.evaluation()
+    File "E:\deep learning\src\cnnClassifier\components\model_evaluation_mlflow.py", line 48, in evaluation
+      self.score = self.model.evaluate(self.valid_generator)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\utils\traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\engine\training.py", line 2072, in evaluate
+      tmp_logs = self.test_function(iterator)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\engine\training.py", line 1852, in test_function
+      return step_function(self, iterator)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\engine\training.py", line 1836, in step_function
+      outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\engine\training.py", line 1824, in run_step
+      outputs = model.test_step(data)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\engine\training.py", line 1790, in test_step
+      self.compute_loss(x, y, y_pred, sample_weight)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\engine\training.py", line 1109, in compute_loss
+      return self.compiled_loss(
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\engine\compile_utils.py", line 265, in __call__
+      loss_value = loss_obj(y_t, y_p, sample_weight=sw)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\losses.py", line 142, in __call__
+      losses = call_fn(y_true, y_pred)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\losses.py", line 268, in call
+      return ag_fn(y_true, y_pred, **self._fn_kwargs)
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\losses.py", line 1984, in categorical_crossentropy
+      return backend.categorical_crossentropy(
+    File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\backend.py", line 5565, in categorical_crossentropy
+      return tf.nn.softmax_cross_entropy_with_logits(
+Node: 'categorical_crossentropy/softmax_cross_entropy_with_logits'
+logits and labels must be broadcastable: logits_size=[16,4] labels_size=[16,3]
+	 [[{{node categorical_crossentropy/softmax_cross_entropy_with_logits}}]] [Op:__inference_test_function_2771]
+[2025-12-21 15:22:32,779: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-12-21 15:22:32,782: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 15:22:32,784: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 15:22:32,785: INFO: common: created directory at: artifacts]
+[2025-12-21 15:22:32,785: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-21 15:22:32,786: INFO: data_ingestion: Downloading data from https://drive.google.com/uc?id=1NzPljKM7uDBp9P1GR4rpL4-kp7hsn-ol into file artifacts/data_ingestion/data.zip]
+[2025-12-21 15:22:44,324: INFO: data_ingestion: Downloaded data from https://drive.google.com/uc?id=1NzPljKM7uDBp9P1GR4rpL4-kp7hsn-ol into file artifacts/data_ingestion/data.zip]
+[2025-12-21 15:22:45,702: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-12-21 15:22:45,702: INFO: main: *******************]
+[2025-12-21 15:22:45,702: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2025-12-21 15:22:45,704: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 15:22:45,706: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 15:22:45,706: INFO: common: created directory at: artifacts]
+[2025-12-21 15:22:45,708: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-21 15:22:46,237: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-12-21 15:22:46,557: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2025-12-21 15:22:46,557: INFO: main: *******************]
+[2025-12-21 15:22:46,557: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-12-21 15:22:46,559: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 15:22:46,561: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 15:22:46,561: INFO: common: created directory at: artifacts]
+[2025-12-21 15:22:46,562: INFO: common: created directory at: artifacts\training]
+[2025-12-21 15:23:44,549: INFO: main: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2025-12-21 15:23:44,549: INFO: main: *******************]
+[2025-12-21 15:23:44,549: INFO: main: >>>>>> stage Evaluation stage started <<<<<<]
+[2025-12-21 15:23:44,551: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 15:23:44,552: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 15:23:44,553: INFO: common: created directory at: artifacts]
+[2025-12-21 15:23:51,387: INFO: common: json file saved at: scores.json]
+[2025-12-21 15:23:51,388: INFO: common: json file saved at: scores.json]
+[2025-12-21 15:23:51,388: INFO: main: >>>>>> stage Evaluation stage completed <<<<<<
+
+x==========x]
+[2025-12-21 15:28:23,819: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-12-21 15:28:23,828: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 15:28:23,828: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 15:28:23,828: INFO: common: created directory at: artifacts]
+[2025-12-21 15:28:23,828: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-21 15:28:23,828: INFO: data_ingestion: Downloading data from https://drive.google.com/uc?id=1NzPljKM7uDBp9P1GR4rpL4-kp7hsn-ol into file artifacts/data_ingestion/data.zip]
+[2025-12-21 15:28:35,126: INFO: data_ingestion: Downloaded data from https://drive.google.com/uc?id=1NzPljKM7uDBp9P1GR4rpL4-kp7hsn-ol into file artifacts/data_ingestion/data.zip]
+[2025-12-21 15:28:36,423: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-12-21 15:28:36,423: INFO: main: *******************]
+[2025-12-21 15:28:36,423: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2025-12-21 15:28:36,439: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 15:28:36,441: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 15:28:36,441: INFO: common: created directory at: artifacts]
+[2025-12-21 15:28:36,441: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-21 15:28:36,761: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-12-21 15:28:36,964: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2025-12-21 15:28:36,964: INFO: main: *******************]
+[2025-12-21 15:28:36,964: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-12-21 15:28:36,964: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 15:28:36,964: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 15:28:36,964: INFO: common: created directory at: artifacts]
+[2025-12-21 15:28:36,964: INFO: common: created directory at: artifacts\training]
+[2025-12-21 15:29:32,252: INFO: main: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2025-12-21 15:29:32,252: INFO: main: *******************]
+[2025-12-21 15:29:32,252: INFO: main: >>>>>> stage Evaluation stage started <<<<<<]
+[2025-12-21 15:29:32,252: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 15:29:32,252: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 15:29:32,252: INFO: common: created directory at: artifacts]
+[2025-12-21 15:29:38,861: INFO: common: json file saved at: scores.json]
+[2025-12-21 15:29:38,861: INFO: common: json file saved at: scores.json]
+[2025-12-21 15:29:40,554: WARNING: save: Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 14). These functions will not be directly callable after loading.]
+[2025-12-21 15:29:41,154: INFO: builder_impl: Assets written to: C:\Users\namit\AppData\Local\Temp\tmp7hqsirdq\model\data\model\assets]
+[2025-12-21 15:29:51,968: INFO: main: >>>>>> stage Evaluation stage completed <<<<<<
+
+x==========x]
+[2025-12-21 16:55:34,071: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-12-21 16:55:34,071: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 16:55:34,083: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 16:55:34,087: INFO: common: created directory at: artifacts]
+[2025-12-21 16:55:34,087: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-21 16:55:34,088: INFO: data_ingestion: Downloading data from https://drive.google.com/uc?id=1NzPljKM7uDBp9P1GR4rpL4-kp7hsn-ol into file artifacts/data_ingestion/data.zip]
+[2025-12-21 16:55:45,824: INFO: data_ingestion: Downloaded data from https://drive.google.com/uc?id=1NzPljKM7uDBp9P1GR4rpL4-kp7hsn-ol into file artifacts/data_ingestion/data.zip]
+[2025-12-21 16:55:47,002: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-12-21 16:55:47,002: INFO: main: *******************]
+[2025-12-21 16:55:47,002: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2025-12-21 16:55:47,002: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 16:55:47,009: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 16:55:47,009: INFO: common: created directory at: artifacts]
+[2025-12-21 16:55:47,099: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-21 16:55:47,634: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-12-21 16:55:48,335: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2025-12-21 16:55:48,335: INFO: main: *******************]
+[2025-12-21 16:55:48,335: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-12-21 16:55:48,335: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 16:55:48,351: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 16:55:48,351: INFO: common: created directory at: artifacts]
+[2025-12-21 16:55:48,351: INFO: common: created directory at: artifacts\training]
+[2025-12-21 16:56:45,636: INFO: main: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2025-12-21 16:56:45,636: INFO: main: *******************]
+[2025-12-21 16:56:45,636: INFO: main: >>>>>> stage Evaluation stage started <<<<<<]
+[2025-12-21 16:56:45,644: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 16:56:45,644: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 16:56:45,644: INFO: common: created directory at: artifacts]
+[2025-12-21 16:56:52,854: INFO: common: json file saved at: scores.json]
+[2025-12-21 16:56:52,861: INFO: common: json file saved at: scores.json]
+[2025-12-21 16:56:54,126: WARNING: save: Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 14). These functions will not be directly callable after loading.]
+[2025-12-21 16:56:54,720: INFO: builder_impl: Assets written to: C:\Users\namit\AppData\Local\Temp\tmpuer9zjlh\model\data\model\assets]
+[2025-12-21 16:57:05,050: INFO: main: >>>>>> stage Evaluation stage completed <<<<<<
+
+x==========x]
+[2025-12-21 16:59:11,209: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-12-21 16:59:11,209: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 16:59:11,209: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 16:59:11,209: INFO: common: created directory at: artifacts]
+[2025-12-21 16:59:11,209: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-21 16:59:11,221: INFO: data_ingestion: Downloading data from https://drive.google.com/uc?id=1NzPljKM7uDBp9P1GR4rpL4-kp7hsn-ol into file artifacts/data_ingestion/data.zip]
+[2025-12-21 16:59:23,351: INFO: data_ingestion: Downloaded data from https://drive.google.com/uc?id=1NzPljKM7uDBp9P1GR4rpL4-kp7hsn-ol into file artifacts/data_ingestion/data.zip]
+[2025-12-21 16:59:24,606: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-12-21 16:59:24,606: INFO: main: *******************]
+[2025-12-21 16:59:24,606: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2025-12-21 16:59:24,606: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 16:59:24,606: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 16:59:24,606: INFO: common: created directory at: artifacts]
+[2025-12-21 16:59:24,606: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-21 16:59:25,046: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-12-21 16:59:25,218: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2025-12-21 16:59:25,218: INFO: main: *******************]
+[2025-12-21 16:59:25,218: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-12-21 16:59:25,218: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 16:59:25,218: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 16:59:25,218: INFO: common: created directory at: artifacts]
+[2025-12-21 16:59:25,218: INFO: common: created directory at: artifacts\training]
+[2025-12-21 17:00:20,434: INFO: main: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2025-12-21 17:00:20,434: INFO: main: *******************]
+[2025-12-21 17:00:20,434: INFO: main: >>>>>> stage Evaluation stage started <<<<<<]
+[2025-12-21 17:00:20,434: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 17:00:20,434: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 17:00:20,434: INFO: common: created directory at: artifacts]
+[2025-12-21 17:00:27,407: INFO: common: json file saved at: scores.json]
+[2025-12-21 17:00:27,411: INFO: common: json file saved at: scores.json]
+[2025-12-21 17:00:58,505: WARNING: connectionpool: Retrying (Retry(total=4, connect=5, read=4, redirect=5, status=5)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /namitjain123/deep-learning-chest-disease.mlflow/api/2.0/mlflow/runs/log-batch]
+[2025-12-21 17:01:00,631: WARNING: save: Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 14). These functions will not be directly callable after loading.]
+[2025-12-21 17:01:01,154: INFO: builder_impl: Assets written to: C:\Users\namit\AppData\Local\Temp\tmppy6m81oq\model\data\model\assets]
+[2025-12-21 17:03:59,629: INFO: main: >>>>>> stage Evaluation stage completed <<<<<<
+
+x==========x]
+[2025-12-21 17:12:21,466: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-12-21 17:12:21,469: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 17:12:21,482: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 17:12:21,483: INFO: common: created directory at: artifacts]
+[2025-12-21 17:12:21,484: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-21 17:12:21,485: INFO: data_ingestion: Downloading data from https://drive.google.com/uc?id=1NzPljKM7uDBp9P1GR4rpL4-kp7hsn-ol into file artifacts/data_ingestion/data.zip]
+[2025-12-21 17:12:34,335: INFO: data_ingestion: Downloaded data from https://drive.google.com/uc?id=1NzPljKM7uDBp9P1GR4rpL4-kp7hsn-ol into file artifacts/data_ingestion/data.zip]
+[2025-12-21 17:12:35,734: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-12-21 17:12:35,736: INFO: main: *******************]
+[2025-12-21 17:12:35,736: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2025-12-21 17:12:35,738: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 17:12:35,739: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 17:12:35,740: INFO: common: created directory at: artifacts]
+[2025-12-21 17:12:35,740: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-21 17:12:36,146: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-12-21 17:12:36,423: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2025-12-21 17:12:36,424: INFO: main: *******************]
+[2025-12-21 17:12:36,424: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-12-21 17:12:36,426: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 17:12:36,428: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 17:12:36,428: INFO: common: created directory at: artifacts]
+[2025-12-21 17:12:36,429: INFO: common: created directory at: artifacts\training]
+[2025-12-21 17:14:58,078: INFO: main: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2025-12-21 17:14:58,078: INFO: main: *******************]
+[2025-12-21 17:14:58,078: INFO: main: >>>>>> stage Evaluation stage started <<<<<<]
+[2025-12-21 17:14:58,081: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 17:14:58,083: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 17:14:58,084: INFO: common: created directory at: artifacts]
+[2025-12-21 17:15:06,163: INFO: common: json file saved at: scores.json]
+[2025-12-21 17:15:06,164: INFO: common: json file saved at: scores.json]
+[2025-12-21 17:15:11,078: WARNING: save: Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 14). These functions will not be directly callable after loading.]
+[2025-12-21 17:15:11,665: INFO: builder_impl: Assets written to: C:\Users\namit\AppData\Local\Temp\tmpk38bfm71\model\data\model\assets]
+[2025-12-21 17:15:46,375: WARNING: connectionpool: Retrying (Retry(total=4, connect=5, read=4, redirect=5, status=5)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /namitjain123/deep-learning-chest-disease.mlflow/api/2.0/mlflow-artifacts/artifacts/7a024ce4ee3e403a8204c268d3a8eef2/bdf45fd993b04988acc1fdabca2eacb5/artifacts/model/data/model/fingerprint.pb]
+[2025-12-21 17:16:16,342: WARNING: connectionpool: Retrying (Retry(total=4, connect=5, read=4, redirect=5, status=5)) after connection broken by 'ConnectionAbortedError(10053, 'An established connection was aborted by the software in your host machine')': /namitjain123/deep-learning-chest-disease.mlflow/api/2.0/mlflow-artifacts/artifacts/7a024ce4ee3e403a8204c268d3a8eef2/bdf45fd993b04988acc1fdabca2eacb5/artifacts/model/data/model/variables/variables.data-00000-of-00001]
+[2025-12-21 17:16:41,864: WARNING: connectionpool: Retrying (Retry(total=3, connect=5, read=3, redirect=5, status=5)) after connection broken by 'ConnectionAbortedError(10053, 'An established connection was aborted by the software in your host machine')': /namitjain123/deep-learning-chest-disease.mlflow/api/2.0/mlflow-artifacts/artifacts/7a024ce4ee3e403a8204c268d3a8eef2/bdf45fd993b04988acc1fdabca2eacb5/artifacts/model/data/model/variables/variables.data-00000-of-00001]
+[2025-12-21 17:17:21,844: WARNING: connectionpool: Retrying (Retry(total=2, connect=5, read=2, redirect=5, status=5)) after connection broken by 'ConnectionAbortedError(10053, 'An established connection was aborted by the software in your host machine')': /namitjain123/deep-learning-chest-disease.mlflow/api/2.0/mlflow-artifacts/artifacts/7a024ce4ee3e403a8204c268d3a8eef2/bdf45fd993b04988acc1fdabca2eacb5/artifacts/model/data/model/variables/variables.data-00000-of-00001]
+[2025-12-21 17:19:05,880: INFO: main: >>>>>> stage Evaluation stage completed <<<<<<
+
+x==========x]
+[2025-12-21 17:51:12,556: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2025-12-21 17:51:12,574: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 17:51:12,578: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 17:51:12,578: INFO: common: created directory at: artifacts]
+[2025-12-21 17:51:12,579: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-12-21 17:51:12,580: INFO: data_ingestion: Downloading data from https://drive.google.com/uc?id=1NzPljKM7uDBp9P1GR4rpL4-kp7hsn-ol into file artifacts/data_ingestion/data.zip]
+[2025-12-21 17:52:31,979: INFO: data_ingestion: Downloaded data from https://drive.google.com/uc?id=1NzPljKM7uDBp9P1GR4rpL4-kp7hsn-ol into file artifacts/data_ingestion/data.zip]
+[2025-12-21 17:52:33,418: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-12-21 17:52:51,081: INFO: stage_02_prepare_base_model: *******************]
+[2025-12-21 17:52:51,082: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare base model started <<<<<<]
+[2025-12-21 17:52:51,083: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 17:52:51,085: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 17:52:51,085: INFO: common: created directory at: artifacts]
+[2025-12-21 17:52:51,086: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-12-21 17:52:51,649: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-12-21 17:52:51,879: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2025-12-21 17:52:58,440: INFO: stage_03_model_trainer: *******************]
+[2025-12-21 17:52:58,440: INFO: stage_03_model_trainer: >>>>>> stage Training started <<<<<<]
+[2025-12-21 17:52:58,443: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 17:52:58,443: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 17:52:58,445: INFO: common: created directory at: artifacts]
+[2025-12-21 17:52:58,445: INFO: common: created directory at: artifacts\training]
+[2025-12-21 17:55:01,615: INFO: stage_03_model_trainer: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2025-12-21 17:55:09,748: INFO: stage_04_model_evaluation: *******************]
+[2025-12-21 17:55:09,748: INFO: stage_04_model_evaluation: >>>>>> stage Evaluation stage started <<<<<<]
+[2025-12-21 17:55:09,750: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-12-21 17:55:09,752: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-12-21 17:55:09,752: INFO: common: created directory at: artifacts]
+[2025-12-21 17:55:17,409: INFO: common: json file saved at: scores.json]
+[2025-12-21 17:55:17,410: INFO: common: json file saved at: scores.json]
+[2025-12-21 17:55:17,411: INFO: stage_04_model_evaluation: >>>>>> stage Evaluation stage completed <<<<<<
+
+x==========x]
