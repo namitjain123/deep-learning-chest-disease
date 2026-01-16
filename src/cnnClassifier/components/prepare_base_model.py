@@ -29,12 +29,13 @@ class PrepareBaseModel:
     def _prepare_full_model(model, classes, freeze_all, freeze_till, learning_rate):
         if freeze_all:
             for layer in model.layers:
-                model.trainable = False
+                layer.trainable = False ##weights will NOT be updated during training
         elif (freeze_till is not None) and (freeze_till > 0):
             for layer in model.layers[:-freeze_till]:
-                model.trainable = False
+                layer.trainable = False
 
-        flatten_in = tf.keras.layers.GlobalAveragePooling2D()(model.output)
+        flatten_in = tf.keras.layers.GlobalAveragePooling2D()(model.output) ##(batch_size, H, W, channels)
+        ##Instead of flattening 7×7×512 = 25,088 values result shape: (batch_size, 512)
         prediction = tf.keras.layers.Dense(
             units=classes,
             activation="softmax"

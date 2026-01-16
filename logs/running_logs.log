@@ -718,3 +718,81 @@ x==========x]
 [2025-12-21 17:55:17,411: INFO: stage_04_model_evaluation: >>>>>> stage Evaluation stage completed <<<<<<
 
 x==========x]
+[2025-12-21 22:54:08,543: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5050]
+[2025-12-21 22:54:08,559: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2025-12-21 22:54:28,767: INFO: _internal: 127.0.0.1 - - [21/Dec/2025 22:54:28] "GET / HTTP/1.1" 200 -]
+[2025-12-21 22:54:39,413: ERROR: app: Exception on /predict [POST]]
+Traceback (most recent call last):
+  File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\flask_cors\decorator.py", line 121, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "E:\deep learning\app.py", line 46, in predictRoute
+    result = clApp.classifier.predict()
+  File "E:\deep learning\src\cnnClassifier\pipeline\prediction.py", line 18, in predict
+    model = load_model(os.path.join("model", "model.h5"))
+  File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\saving\saving_api.py", line 212, in load_model
+    return legacy_sm_saving_lib.load_model(
+  File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\utils\traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Users\namit\anaconda3\envs\cancer\lib\site-packages\keras\saving\legacy\save.py", line 230, in load_model
+    raise IOError(
+OSError: No file or directory found at model\model.h5
+[2025-12-21 22:54:39,438: INFO: _internal: 127.0.0.1 - - [21/Dec/2025 22:54:39] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -]
+[2026-01-16 15:30:34,832: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-01-16 15:30:34,861: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-01-16 15:30:34,890: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-16 15:30:34,891: INFO: common: created directory at: artifacts]
+[2026-01-16 15:30:34,892: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-01-16 15:30:34,892: INFO: data_ingestion: Downloading data from https://drive.google.com/uc?id=1NzPljKM7uDBp9P1GR4rpL4-kp7hsn-ol into file artifacts/data_ingestion/data.zip]
+[2026-01-16 15:30:47,040: INFO: data_ingestion: Downloaded data from https://drive.google.com/uc?id=1NzPljKM7uDBp9P1GR4rpL4-kp7hsn-ol into file artifacts/data_ingestion/data.zip]
+[2026-01-16 15:30:49,867: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-01-16 15:30:49,867: INFO: main: *******************]
+[2026-01-16 15:30:49,868: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2026-01-16 15:30:49,870: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-01-16 15:30:49,871: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-16 15:30:49,871: INFO: common: created directory at: artifacts]
+[2026-01-16 15:30:49,872: INFO: common: created directory at: artifacts/prepare_base_model]
+[2026-01-16 15:30:50,590: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-01-16 15:30:51,427: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2026-01-16 15:30:51,428: INFO: main: *******************]
+[2026-01-16 15:30:51,428: INFO: main: >>>>>> stage Training started <<<<<<]
+[2026-01-16 15:30:51,431: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-01-16 15:30:51,432: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-16 15:30:51,433: INFO: common: created directory at: artifacts]
+[2026-01-16 15:30:51,433: INFO: common: created directory at: artifacts\training]
+[2026-01-16 15:32:51,589: INFO: main: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2026-01-16 15:32:51,590: INFO: main: *******************]
+[2026-01-16 15:32:51,590: INFO: main: >>>>>> stage Evaluation stage started <<<<<<]
+[2026-01-16 15:32:51,592: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-01-16 15:32:51,593: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-01-16 15:32:51,594: INFO: common: created directory at: artifacts]
+[2026-01-16 15:32:58,603: INFO: common: json file saved at: scores.json]
+[2026-01-16 15:32:58,605: INFO: common: json file saved at: scores.json]
+[2026-01-16 15:32:58,605: INFO: main: >>>>>> stage Evaluation stage completed <<<<<<
+
+x==========x]
+[2026-01-16 18:32:23,883: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5050]
+[2026-01-16 18:32:23,973: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2026-01-16 18:32:32,253: INFO: _internal: 127.0.0.1 - - [16/Jan/2026 18:32:32] "GET / HTTP/1.1" 200 -]
+[2026-01-16 18:33:41,977: INFO: _internal: 127.0.0.1 - - [16/Jan/2026 18:33:41] "GET / HTTP/1.1" 200 -]
+[2026-01-16 18:34:13,761: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5050]
+[2026-01-16 18:34:13,762: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2026-01-16 18:34:29,547: INFO: _internal: 127.0.0.1 - - [16/Jan/2026 18:34:29] "GET / HTTP/1.1" 200 -]
